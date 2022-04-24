@@ -7,12 +7,12 @@ public class CarName {
 
     private String name;
 
-    public CarName(String name) {
+    public CarName(String name) throws IllegalArgumentException {
         validateCarName(name);
         this.name = name;
     }
 
-    public String get() {
+    public String getName() {
         return name;
     }
 
