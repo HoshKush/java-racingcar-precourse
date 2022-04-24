@@ -1,29 +1,37 @@
 package racingcar;
 
 public class Car {
-    private final String name;
-    private int position;
+    private CarName name;
+    private CarPosition position;
 
-    public Car(String name) {
-        this.name = name;
-        this.position = 0;
+    private Car(String name) {
+        this.name = new CarName(name);
+        this.position = new CarPosition();
     }
 
-    public void goForward() {
-        this.position++;
+    public static Car create(String name) {
+        return new Car(name);
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void canGoForward(int no) {
+    public void canMoveForward(int no) {
         if(isBiggerThanStandard(no)) {
-            goForward();
+            moveForward();
         }
     }
 
+    public void moveForward() {
+        position.increaseCurPosition();
+    }
+
     private boolean isBiggerThanStandard(int no) {
-        return no >= CarProperties.STANDARD;
+        return no >= CarProperties.LEAST_NUM_TO_MOVE;
+    }
+
+    public int getPosition() {
+        return position.getCurPosition();
+    }
+
+    public String getName() {
+        return name.get();
     }
 }
