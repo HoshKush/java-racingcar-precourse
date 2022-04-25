@@ -8,12 +8,12 @@ public class Race {
     private RaceTurn turn;
     private PositionOfHead positionOfHead;
 
-    public static Race create(String carNames, int turn) throws IllegalArgumentException {
+    public static Race create(UserInput userInput) throws IllegalArgumentException {
         Race race = new Race();
-        race.cars = Cars.create(carNames);
+        race.cars = Cars.create(userInput.getCarNames());
         race.positionOfHead = new PositionOfHead();
         race.record = new RaceRecord();
-        race.turn = new RaceTurn(turn);
+        race.turn = userInput.getTurn();
         return race;
     }
 
@@ -29,12 +29,10 @@ public class Race {
         while(!turn.isFinished()) {
             nextRaceTurn();
         }
+        record.addWinners(isWhoWinner());
     }
 
     public void nextRaceTurn() {
-        if(turn.isFinished()) {
-            record.addWinners(isWhoWinner());
-        }
         for(Car car : cars.getCollection().values()) {
             car.canMoveForward(pickRandomNum());
             positionOfHead.setPositionIfNewHead(car);

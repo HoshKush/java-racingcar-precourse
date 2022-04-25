@@ -7,8 +7,8 @@ import java.util.List;
 public class RaceRecord {
     public static final String RACE_RESULT = "실행 결과";
     public static final String RACE_PROGRESS_MARKER = "-";
-    public static final String RACE_PROGRESS_FORM = "%-5s:%s";
-    public static final String RACE_WINNER_FORM = "최종 우승자:%s";
+    public static final String RACE_PROGRESS_FORM = "%s : %s";
+    public static final String RACE_WINNER_FORM = "최종 우승자: %s";
     public static final String RACE_WINNER_DIVIDER = ", ";
     public static final String LINE_BREAK = "";
 
@@ -46,5 +46,10 @@ public class RaceRecord {
         records.add(
                 String.format(RACE_WINNER_FORM, String.join(RACE_WINNER_DIVIDER,winners.getWinnerList()))
         );
+    }
+
+    @Override
+    public String toString() {
+        return String.join("\n", records);
     }
 }
