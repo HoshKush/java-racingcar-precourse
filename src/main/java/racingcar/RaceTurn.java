@@ -9,7 +9,7 @@ public class RaceTurn {
         this.turn = turn;
     }
 
-    public RaceTurn(String inputTurn) {
+    public RaceTurn(String inputTurn) throws IllegalArgumentException {
         validateTurn(inputTurn);
         this.turn = Integer.parseInt(inputTurn);
     }

@@ -10,12 +10,20 @@ public class RaceController {
     }
 
     public String inputCarNames(String inputCarNames) {
-        userInput.setCarNames(inputCarNames);
+        try {
+            userInput.setCarNames(inputCarNames);
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
+        }
         return UserInput.USER_INPUT_TURN;
     }
 
     public String inputTurn(String turn) {
-        userInput.setTurn(turn);
+        try {
+            userInput.setTurn(turn);
+        } catch (IllegalArgumentException e) {
+            return e.getMessage();
+        }
         return UserInput.START_RACE;
     }
 

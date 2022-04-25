@@ -9,11 +9,11 @@ public class UserInput {
     private CarNames carNames;
     private RaceTurn turn;
 
-    public void setCarNames(String inputCarNames) {
+    public void setCarNames(String inputCarNames) throws IllegalArgumentException {
         carNames = CarNames.create(inputCarNames);
     }
 
-    public void setTurn(String inputTurn) {
+    public void setTurn(String inputTurn) throws IllegalArgumentException {
         turn = new RaceTurn(inputTurn);
     }
 

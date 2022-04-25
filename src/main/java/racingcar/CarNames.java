@@ -12,7 +12,7 @@ public class CarNames {
         names = new ArrayList<>();
     }
 
-    public static CarNames create(String inputCarNames) {
+    public static CarNames create(String inputCarNames) throws IllegalArgumentException {
         validateCarNames(inputCarNames);
         CarNames names = new CarNames();
         for(String carName : inputCarNames.split(",")) {
